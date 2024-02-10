@@ -13,12 +13,16 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
     "antd": "^5.14.0",
+    "axios": "^1.6.7",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0"
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@fe/browserslist-config": "^1.0.2",
+    "@types/qs": "^6.9.11",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",

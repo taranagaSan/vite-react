@@ -1,36 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
+import { Layout, theme } from 'antd'
 import './App.css'
-import { Button } from 'antd'
+import styles from './App.module.css'
+import { AppHeader } from './common/header'
+import { AppRouter } from './router'
+import { BrowserRouter } from 'react-router-dom'
+import { AppMenu } from './common/menu'
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-		<Button onClick={() => setCount((count) => count + 1)} type="primary">
-			count is {count}
-		</Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const { Content, Sider } = Layout;
 
-export default App
+const App: React.FC = () => {
+	const {
+		token: { colorBgContainer },
+	} = theme.useToken();
+
+	return (
+        <BrowserRouter>
+            <Layout className={styles.layout}>
+                <AppHeader />
+                <Layout>
+                    <Sider
+                        className={styles.aside}
+                        style={{
+                            background: colorBgContainer,
+                        }}
+                    >
+                        <AppMenu />
+                    </Sider>
+                    <Layout className={styles.content}>
+                        <Content>
+                            <AppRouter />
+                        </Content>
+                    </Layout>
+                </Layout>
+            </Layout>
+		</BrowserRouter>
+	);
+};
+
+export default App;
